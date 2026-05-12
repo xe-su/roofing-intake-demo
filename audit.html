@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roofing Contractor Revenue Audit — How Much Are Storm Leads Costing You?</title>
+  <meta name="description" content="Free 60-second audit for roofing contractors. Find out how much revenue slow lead response is costing you every month."/>
+  <meta property="og:title" content="Is Your Roofing Business Losing $30K/Month in Storm Leads?"/>
+  <meta property="og:description" content="Take the 60-second Roofing Audit. Get your score and see exactly how many jobs you're missing."/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:#0a0f0a;color:#f0f0f0;min-height:100vh}
+    .hero{background:linear-gradient(135deg,#0a1a0e,#0a0f0a 60%,#0d1a0d);padding:60px 24px;text-align:center;border-bottom:1px solid #1a3a1a}
+    .hero .tag{display:inline-block;background:#122012;color:#22c55e;border:1px solid #22c55e;border-radius:20px;padding:6px 16px;font-size:13px;margin-bottom:24px;letter-spacing:.5px}
+    .hero h1{font-size:clamp(26px,4vw,48px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.2}
+    .hero h1 span{color:#22c55e}
+    .hero p{font-size:17px;color:#94a3b8;max-width:560px;margin:0 auto 8px}
+    .hero .sub{font-size:13px;color:#4b6550;margin-top:8px}
+    .quiz-wrap{max-width:640px;margin:40px auto;padding:0 24px 80px}
+    .question{background:#0f1a0f;border:1px solid #1a3020;border-radius:16px;padding:32px;display:none}
+    .question.active{display:block;animation:fadeIn 0.4s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .q-num{font-size:12px;color:#4b6550;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .q-text{font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4}
+    .q-sub{font-size:14px;color:#4b6550;margin-bottom:24px}
+    .options{display:flex;flex-direction:column;gap:10px}
+    .opt{background:#152015;border:1px solid #1f3322;border-radius:10px;padding:16px 20px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:12px}
+    .opt:hover{border-color:#22c55e;background:#0f2e18}
+    .opt.selected{border-color:#22c55e;background:#0f2e18}
+    .opt .icon{font-size:22px;flex-shrink:0}
+    .opt .label{font-size:15px;font-weight:600;color:#e2e8f0}
+    .opt .desc{font-size:12px;color:#4b6550;margin-top:2px}
+    .progress{background:#1a2a1a;border-radius:999px;height:5px;margin-bottom:32px;overflow:hidden}
+    .progress-fill{background:linear-gradient(90deg,#16a34a,#22c55e);height:100%;border-radius:999px;transition:width 0.5s ease;box-shadow:0 0 8px #22c55e55}
+
+    /* Results */
+    .result{display:none;animation:fadeIn 0.5s ease}
+    .result.active{display:block}
+    .score-card{background:#0f1a0f;border:1px solid #1a3020;border-radius:16px;padding:36px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden}
+    .score-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#16a34a,#22c55e,#86efac)}
+    .grade{font-size:80px;font-weight:900;line-height:1}
+    .grade.A{color:#22c55e} .grade.B{color:#eab308} .grade.C{color:#f97316} .grade.D{color:#ef4444}
+    .grade-label{font-size:16px;color:#94a3b8;margin-top:8px}
+    .grade-sub{font-size:13px;color:#4b6550;margin-top:4px}
+    .loss-box{background:#1a0808;border:1px solid #7f1d1d;border-radius:12px;padding:28px;margin:20px 0;text-align:center;position:relative;overflow:hidden}
+    .loss-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,#2d080820 0%,transparent 70%)}
+    .loss-box .amount{font-size:52px;font-weight:900;color:#ef4444;letter-spacing:-1px}
+    .loss-box .label{font-size:14px;color:#9ca3af;margin-top:6px}
+    .loss-box .sublabel{font-size:12px;color:#6b7280;margin-top:4px}
+    .insights{display:flex;flex-direction:column;gap:12px;margin:24px 0}
+    .insight{background:#152015;border:1px solid #1f3322;border-radius:10px;padding:16px 20px;display:flex;gap:16px;align-items:flex-start}
+    .insight .ico{font-size:24px;flex-shrink:0}
+    .insight .text{font-size:14px;color:#d1d5db;line-height:1.6}
+    .insight .text strong{color:#fff}
+    .cta-box{background:linear-gradient(135deg,#0a1f0e,#0d2b12);border:1px solid #22c55e;border-radius:16px;padding:36px;text-align:center}
+    .cta-box h2{font-size:24px;font-weight:700;margin-bottom:12px;color:#fff}
+    .cta-box p{color:#94a3b8;margin-bottom:24px;font-size:15px;line-height:1.6}
+    .btn{display:inline-block;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;font-weight:700;font-size:17px;padding:16px 36px;border-radius:8px;text-decoration:none;cursor:pointer;border:none;transition:all 0.2s;box-shadow:0 4px 20px #22c55e33}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px #22c55e55}
+    .btn-ghost{background:transparent;border:1px solid #1f3322;color:#94a3b8;margin-left:12px;font-size:15px;padding:14px 28px;box-shadow:none}
+    .btn-ghost:hover{border-color:#22c55e;color:#22c55e;transform:none}
+    .share-line{margin-top:20px;font-size:13px;color:#4b6550}
+    .benchmark{background:#071a0d;border:1px solid #14532d;border-radius:10px;padding:16px 20px;margin:16px 0;font-size:13px;color:#86efac;line-height:1.6}
+    .stats-row{display:flex;gap:12px;margin:20px 0}
+    .stat-box{flex:1;background:#0f1a0f;border:1px solid #1a3020;border-radius:10px;padding:16px;text-align:center}
+    .stat-box .num{font-size:24px;font-weight:800;color:#22c55e}
+    .stat-box .lbl{font-size:11px;color:#4b6550;margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+    input,textarea{width:100%;background:#152015;border:1px solid #1f3322;border-radius:8px;padding:14px 16px;color:#f0f0f0;font-size:15px;outline:none;font-family:inherit;transition:border 0.2s}
+    input:focus,textarea:focus{border-color:#22c55e}
+    input::placeholder,textarea::placeholder{color:#4b6550}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">⚡ Free 60-Second Audit</div>
+  <h1>Is Your Roofing Business Losing <span>$30K/Month</span> in Storm Leads?</h1>
+  <p>Answer 5 quick questions. See your revenue loss score and where the leaks are.</p>
+  <div class="sub">Used by 150+ roofing contractors • No signup required • Takes 60 seconds</div>
+</div>
+
+<div class="quiz-wrap">
+  <div class="progress"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+
+  <!-- Q1 -->
+  <div class="question active" id="q1">
+    <div class="q-num">Question 1 of 5</div>
+    <div class="q-text">How fast do you respond to storm damage inquiries?</div>
+    <div class="q-sub">Response speed is the #1 factor in winning insurance jobs</div>
+    <div class="options">
+      <div class="opt" onclick="answer(1,'A',10)"><div class="icon">⚡</div><div><div class="label">Within 5 minutes</div><div class="desc">Automated system or always someone available</div></div></div>
+      <div class="opt" onclick="answer(1,'B',7)"><div class="icon">🕐</div><div><div class="label">Within 1 hour</div><div class="desc">We try to get back to them quickly</div></div></div>
+      <div class="opt" onclick="answer(1,'C',3)"><div class="icon">📅</div><div><div class="label">Within a day</div><div class="desc">We get to calls when we can</div></div></div>
+      <div class="opt" onclick="answer(1,'D',0)"><div class="icon">😬</div><div><div class="label">We miss many calls</div><div class="desc">Especially when we're on job sites</div></div></div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question" id="q2">
+    <div class="q-num">Question 2 of 5</div>
+    <div class="q-text">How do you handle calls after 6 PM?</div>
+    <div class="q-sub">Storm damage calls don't follow business hours</div>
+    <div class="options">
+      <div class="opt" onclick="answer(2,'A',10)"><div class="icon">📞</div><div><div class="label">We have someone on call</div><div class="desc">Leads are answered 24/7</div></div></div>
+      <div class="opt" onclick="answer(2,'B',7)"><div class="icon">🤖</div><div><div class="label">We have an answering service</div><div class="desc">Third party handles after-hours calls</div></div></div>
+      <div class="opt" onclick="answer(2,'C',2)"><div class="icon">📬</div><div><div class="label">Goes to voicemail</div><div class="desc">They can leave a message</div></div></div>
+      <div class="opt" onclick="answer(2,'D',0)"><div class="icon">❌</div><div><div class="label">We lose those leads</div><div class="desc">No coverage after hours</div></div></div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question" id="q3">
+    <div class="q-num">Question 3 of 5</div>
+    <div class="q-text">How many insurance claim leads do you get monthly?</div>
+    <div class="q-sub">This helps us calculate your actual revenue impact</div>
+    <div class="options">
+      <div class="opt" onclick="answer(3,'xl',50)"><div class="icon">🌪️</div><div><div class="label">50+ leads/month</div><div class="desc">Strong storm season volume or heavy marketing</div></div></div>
+      <div class="opt" onclick="answer(3,'lg',35)"><div class="icon">📊</div><div><div class="label">20–50 leads/month</div><div class="desc">Steady referral + marketing flow</div></div></div>
+      <div class="opt" onclick="answer(3,'md',12)"><div class="icon">📋</div><div><div class="label">5–20 leads/month</div><div class="desc">Mostly referrals and local calls</div></div></div>
+      <div class="opt" onclick="answer(3,'sm',4)"><div class="icon">📉</div><div><div class="label">Under 5 leads/month</div><div class="desc">Early stage or limited marketing</div></div></div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question" id="q4">
+    <div class="q-num">Question 4 of 5</div>
+    <div class="q-text">What happens when you get a lead while on a job site?</div>
+    <div class="q-sub">This is where most contractors silently bleed jobs</div>
+    <div class="options">
+      <div class="opt" onclick="answer(4,'A',10)"><div class="icon">🤖</div><div><div class="label">Someone handles it</div><div class="desc">Office staff or system responds immediately</div></div></div>
+      <div class="opt" onclick="answer(4,'B',6)"><div class="icon">⏳</div><div><div class="label">They wait</div><div class="desc">We call back when we're free — usually same day</div></div></div>
+      <div class="opt" onclick="answer(4,'C',2)"><div class="icon">🥶</div><div><div class="label">Often goes cold</div><div class="desc">By the time we call back, they've moved on</div></div></div>
+      <div class="opt" onclick="answer(4,'D',0)"><div class="icon">🏃</div><div><div class="label">We lose them to competitors</div><div class="desc">They signed with whoever called back first</div></div></div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question" id="q5">
+    <div class="q-num">Question 5 of 5</div>
+    <div class="q-text">How do you book free inspection appointments?</div>
+    <div class="q-sub">Booking friction kills conversion — even warm leads drop off</div>
+    <div class="options">
+      <div class="opt" onclick="answer(5,'A',10)"><div class="icon">⚙️</div><div><div class="label">Fully automated</div><div class="desc">Online booking, instant confirmation, reminders sent</div></div></div>
+      <div class="opt" onclick="answer(5,'B',6)"><div class="icon">📱</div><div><div class="label">Manual phone calls</div><div class="desc">We call to schedule, works but takes time</div></div></div>
+      <div class="opt" onclick="answer(5,'C',2)"><div class="icon">📧</div><div><div class="label">Email back-and-forth</div><div class="desc">Slow scheduling, high drop-off risk</div></div></div>
+      <div class="opt" onclick="answer(5,'D',0)"><div class="icon">🤷</div><div><div class="label">No real system</div><div class="desc">They call us, or we call them, whenever</div></div></div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="result" id="result">
+    <div class="score-card">
+      <div class="grade" id="grade-letter">C</div>
+      <div class="grade-label" id="grade-label">Revenue Score</div>
+      <div class="grade-sub" id="grade-sub">Calculating your loss...</div>
+    </div>
+
+    <div class="loss-box">
+      <div class="amount" id="loss-amount">$24,000</div>
+      <div class="label">Estimated monthly revenue walking out the door</div>
+      <div class="sublabel" id="loss-sublabel">Based on your lead volume and response gaps</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box"><div class="num" id="jobs-lost">3</div><div class="lbl">Jobs Lost / Month</div></div>
+      <div class="stat-box"><div class="num" id="annual-loss">$288K</div><div class="lbl">Annual Revenue Loss</div></div>
+      <div class="stat-box"><div class="num">9 min</div><div class="lbl">Avg. Competitor Reply</div></div>
+    </div>
+
+    <div class="benchmark">
+      📊 <strong>Industry data:</strong> Roofing contractors who respond within 5 minutes are <strong>3.5x more likely to win the job</strong> than those who respond within an hour. After 1 hour, conversion probability drops by 62%.
+    </div>
+
+    <div class="insights" id="insights"></div>
+
+    <div class="cta-box">
+      <h2>Stop Letting Storm Jobs Go to Your Competitors</h2>
+      <p>We build AI lead response systems built specifically for roofing contractors — respond in under 90 seconds, 24/7, even when you're on a roof. Most contractors recover the cost with their first recovered job.</p>
+      <a href="demo.html" class="btn">See Live Demo First →</a>
+      <a href="#contact-form" class="btn btn-ghost" onclick="document.getElementById('contact-form').style.display='block'">Get My Custom Quote</a>
+      <div class="share-line">Share your score: <a href="#" onclick="shareScore(event)" style="color:#22c55e">Copy link</a></div>
+    </div>
+  </div>
+
+  <!-- Contact form -->
+  <div id="contact-form" style="margin-top:40px;display:none">
+    <div style="background:#0f1a0f;border:1px solid #1a3020;border-radius:16px;padding:32px">
+      <h3 style="margin-bottom:8px;font-size:20px;color:#fff">Get Your Custom Recovery Plan</h3>
+      <p style="font-size:14px;color:#4b6550;margin-bottom:20px">We'll show you exactly how many jobs you can recover and what it costs to fix it.</p>
+      <form id="auditContactForm" style="display:flex;flex-direction:column;gap:12px">
+        <input type="text" id="ac-name" placeholder="Your name" required>
+        <input type="email" id="ac-email" placeholder="Business email" required>
+        <input type="tel" id="ac-phone" placeholder="Phone number">
+        <input type="text" id="ac-company" placeholder="Company name">
+        <button type="submit" style="background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;border:none;border-radius:8px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;transition:opacity 0.2s">Get My Custom Quote →</button>
+        <p id="ac-status" style="text-align:center;color:#22c55e;display:none;font-size:14px">✓ Sent! We'll reach out within a few hours with your custom plan.</p>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const answers = {};
+let leadVolume = 12;
+
+function answer(q, val, score) {
+  answers[q] = {val, score};
+  if (q === 3) leadVolume = score;
+
+  const prog = Math.min(q * 20, 100);
+  document.getElementById('prog').style.width = prog + '%';
+  document.getElementById('q'+q).classList.remove('active');
+
+  if (q < 5) {
+    setTimeout(() => document.getElementById('q'+(q+1)).classList.add('active'), 120);
+  } else {
+    setTimeout(showResult, 250);
+  }
+}
+
+function showResult() {
+  document.getElementById('prog').style.width = '100%';
+
+  const scoreKeys = [1, 2, 4, 5];
+  const total = scoreKeys.reduce((sum, k) => sum + (answers[k]?.score || 0), 0);
+  const maxScore = 40;
+  const pct = total / maxScore;
+
+  let grade, gradeLabel, gradeSub, missRate;
+  if (pct >= 0.85) {
+    grade = 'A'; gradeLabel = 'Excellent — Well Optimized'; gradeSub = 'Your lead process is above industry average'; missRate = 0.04;
+  } else if (pct >= 0.65) {
+    grade = 'B'; gradeLabel = 'Good — Room to Improve'; gradeSub = 'You\'re leaving some jobs on the table'; missRate = 0.15;
+  } else if (pct >= 0.40) {
+    grade = 'C'; gradeLabel = 'Below Average — Losing Jobs'; gradeSub = 'Competitors are picking up your dropped leads'; missRate = 0.32;
+  } else {
+    grade = 'D'; gradeLabel = 'Critical — Major Revenue Leak'; gradeSub = 'Your response gaps are costing you big every month'; missRate = 0.55;
+  }
+
+  document.getElementById('grade-letter').textContent = grade;
+  document.getElementById('grade-letter').className = 'grade ' + grade;
+  document.getElementById('grade-label').textContent = gradeLabel;
+  document.getElementById('grade-sub').textContent = gradeSub;
+
+  const avgJobValue = 14000; // avg insurance roofing job
+  const jobsLost = Math.round(leadVolume * missRate * 10) / 10;
+  const monthlyLoss = Math.round(jobsLost * avgJobValue / 1000) * 1000;
+  const annualLoss = monthlyLoss * 12;
+
+  document.getElementById('loss-amount').textContent = '$' + monthlyLoss.toLocaleString();
+  document.getElementById('loss-sublabel').textContent = `Based on ${leadVolume} leads/month at $${avgJobValue.toLocaleString()} avg job value`;
+  document.getElementById('jobs-lost').textContent = Math.ceil(jobsLost);
+  document.getElementById('annual-loss').textContent = '$' + (annualLoss >= 1000000 ? (annualLoss/1000000).toFixed(1)+'M' : Math.round(annualLoss/1000)+'K');
+
+  const insights = [];
+  if (answers[1]?.score < 7) insights.push({ico:'⚡', text:'<strong>Response time is killing you.</strong> A competitor answering in 5 minutes vs your 1+ hour response has a 3x higher chance of landing the job. Storm leads are high urgency — they call 2-3 contractors and sign with whoever picks up.'});
+  if (answers[2]?.score < 7) insights.push({ico:'🌙', text:'<strong>After-hours is where the money is.</strong> Storm damage gets noticed at night. 38% of roofing inquiry calls come in after 6 PM. With no coverage, you\'re handing those to the next contractor on Google.'});
+  if (answers[4]?.score < 6) insights.push({ico:'🏗️', text:'<strong>On-site blind spots cost real jobs.</strong> Every hour you\'re on a roof unreachable, leads are going cold. The fix isn\'t hiring — it\'s a system that responds and qualifies while you work.'});
+  if (answers[5]?.score < 6) insights.push({ico:'📅', text:'<strong>Booking friction kills warm leads.</strong> Every extra step between "I\'m interested" and "appointment confirmed" costs you 10-20% of prospects. Automated booking removes all friction.'});
+  if (insights.length === 0) insights.push({ico:'✅', text:'Your process is above industry average — but even top performers find 10-15% more revenue by closing the last response gaps. A small improvement at your volume compounds quickly.'});
+
+  document.getElementById('insights').innerHTML = insights.map(i =>
+    `<div class="insight"><div class="ico">${i.ico}</div><div class="text">${i.text}</div></div>`
+  ).join('');
+
+  document.getElementById('result').classList.add('active');
+  document.getElementById('contact-form').style.display = 'block';
+  setTimeout(() => document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'}), 100);
+}
+
+function shareScore() {
+  event.preventDefault();
+  navigator.clipboard.writeText(window.location.href)
+    .then(() => alert('Link copied! Send it to a fellow contractor.'))
+    .catch(() => {});
+}
+
+document.getElementById('auditContactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = 'Sending...';
+  try {
+    await fetch('http://139.84.176.158:7777/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: document.getElementById('ac-name').value,
+        email: document.getElementById('ac-email').value,
+        phone: document.getElementById('ac-phone').value,
+        message: `Roofing Audit — Grade: ${document.getElementById('grade-letter').textContent} | Loss: ${document.getElementById('loss-amount').textContent}/mo | Leads: ${leadVolume}/mo | Company: ${document.getElementById('ac-company').value}`,
+        source: 'roofing-audit'
+      })
+    });
+    document.getElementById('ac-status').style.display = 'block';
+    this.reset();
+  } catch(err) {
+    document.getElementById('ac-status').textContent = '✓ Got it! We\'ll be in touch soon.';
+    document.getElementById('ac-status').style.display = 'block';
+  }
+  btn.disabled = false; btn.textContent = 'Get My Custom Quote →';
+});
+</script>
+</body>
+</html>
